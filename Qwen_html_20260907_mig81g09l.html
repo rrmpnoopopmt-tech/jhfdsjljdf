@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentaCare - Профессиональная чистка зубов</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1F2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: #FFFFFF;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #0F766E;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #1F2937;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #2DD4BF;
+        }
+
+        .header-phone {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0F766E;
+            text-decoration: none;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #F0FDFA 0%, #FFFFFF 100%);
+            padding: 120px 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 56px;
+            font-weight: 800;
+            color: #0F766E;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            color: #4B5563;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: #F59E0B;
+            color: #FFFFFF;
+            padding: 18px 40px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #D97706;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #2DD4BF 0%, #0F766E 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* ===== BENEFITS SECTION ===== */
+        .benefits {
+            padding: 100px 0;
+            background: #FFFFFF;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 700;
+            color: #0F766E;
+            margin-bottom: 60px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 32px 24px;
+            background: #F9FAFB;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            background: #FFFFFF;
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            color: #2DD4BF;
+        }
+
+        .benefit-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1F2937;
+        }
+
+        /* ===== PHOTO SECTION ===== */
+        .photo-section {
+            padding: 100px 0;
+            background: #F0FDFA;
+        }
+
+        .photo-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #2DD4BF 0%, #0F766E 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .photo-caption {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 18px;
+            color: #4B5563;
+            font-style: italic;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2DD4BF 0%, #0F766E 100%);
+            color: #FFFFFF;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .cta-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-input {
+            padding: 16px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #FFFFFF;
+            color: #1F2937;
+        }
+
+        .form-input:focus {
+            outline: 2px solid #F59E0B;
+        }
+
+        .btn-submit {
+            padding: 18px 40px;
+            background: #F59E0B;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #D97706;
+            transform: translateY(-2px);
+        }
+
+        .cta-note {
+            margin-top: 16px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #1F2937;
+            color: #FFFFFF;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2DD4BF;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #D1D5DB;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #2DD4BF;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #374151;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #2DD4BF;
+            transform: translateY(-3px);
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: #FFFFFF;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                height: auto;
+                padding: 20px 0;
+                gap: 16px;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 16px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2C8.5 2 6 4.5 6 8c0 2 1 3 1 5s-1 3-1 5c0 2 2 4 6 4s6-2 6-4c0-2-1-3-1-5s1-3 1-5c0-3.5-2.5-6-6-6z"/>
+                        <circle cx="12" cy="8" r="2"/>
+                    </svg>
+                    <span>DentaCare</span>
+                </div>
+                <nav class="nav">
+                    <a href="#services">Услуги</a>
+                    <a href="#prices">Цены</a>
+                    <a href="#about">О клинике</a>
+                    <a href="#contacts">Контакты</a>
+                </nav>
+                <a href="tel:+79991234567" class="header-phone">+7 (999) 123-45-67</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Профессиональная чистка зубов за 1 час</h1>
+                    <p>Избавьтесь от налёта и камня без боли. Результат виден сразу. Гарантия качества.</p>
+                    <a href="#cta" class="btn-primary">Записаться на приём</a>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-placeholder">
+                        🦷
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BENEFITS SECTION ===== -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="benefits-grid">
+                <!-- Benefit 1 -->
+                <div class="benefit-card">
+                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <h3>Стерильность 100%</h3>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="benefit-card">
+                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12,6 12,12 16,14"/>
+                    </svg>
+                    <h3>Всего 60 минут</h3>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="benefit-card">
+                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                    </svg>
+                    <h3>Опытные врачи</h3>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="benefit-card">
+                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    <h3>Без боли и дискомфорта</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PHOTO SECTION ===== -->
+    <section class="photo-section">
+        <div class="container">
+            <div class="photo-container">
+                <div class="photo-placeholder">
+                    <!-- Замените на реальное фото -->
+                    <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1000&h=500&fit=crop" 
+                         alt="Стоматологическая клиника" 
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+            <p class="photo-caption">Современное оборудование и заботливый персонал</p>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Запишитесь на бесплатную консультацию</h2>
+                <p>Оставьте заявку, и мы перезвоним вам в течение 15 минут</p>
+                <form class="cta-form">
+                    <input type="text" class="form-input" placeholder="Ваше имя" required>
+                    <input type="tel" class="form-input" placeholder="Ваш телефон" required>
+                    <button type="submit" class="btn-submit">Отправить заявку</button>
+                </form>
+                <p class="cta-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="contacts">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>г. Москва, ул. Примерная, 123</p>
+                    <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+                    <a href="mailto:info@dentacare.ru">info@dentacare.ru</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Режим работы</h3>
+                    <p>Пн-Пт: 9:00 - 20:00</p>
+                    <p>Сб: 10:00 - 18:00</p>
+                    <p>Вс: выходной</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Мы в соцсетях</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm-1.91 14.46h-1.89c-.72 0-.83-.27-2.1-1.55-1.45-1.4-2.04-1.6-2.38-1.6-.47 0-.6.13-.6.76v1.4c0 .55-.17.88-1.62.88-1.45 0-3.07-.73-4.22-2.1-1.72-1.95-2.18-4.1-2.18-4.6 0-.33.13-.63.76-.63h1.89c.57 0 .78.26 1 .93.33 1.1.72 2.03 1.22 2.03.37 0 .54-.17.54-1.1V8.5c-.1-1.68-1-1.8-1-2.38 0-.2.17-.4.44-.4h2.97c.37 0 .5.17.5.54v3.17c0 .37.17.5.27.5.37 0 .67-.13 1.34-.8 1.1-1.23 1.88-3.13 1.88-3.13.1-.23.27-.4.64-.4h1.89c.57 0 .7.27.57.63-.23 1.1-2.47 4.37-2.47 4.37-.2.33-.27.47 0 .83.2.27.87.87 1.32 1.4.83.93 1.47 1.72 1.64 2.27.2.54-.07.82-.6.82z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M11.94 2c5.52 0 10 4.48 10 10s-4.48 10-10 10-10-4.48-10-10S6.42 2 11.94 2zm4.66 6.43c-.13 1.05-.78 4.37-1.1 5.93-.14.65-.33.87-.51.89-.4.04-.7-.26-1.08-.51-.6-.4-.94-.64-1.52-1.04-.67-.44-.24-.68.15-1.09.25-.26 1.37-1.28 1.39-1.37.02-.11.04-.26-.04-.37-.08-.11-.2-.07-.29-.05-.12.02-2.02 1.29-2.39 1.54-.37.25-.71.03-.97-.05-.6-.19-1.14-.38-1.66-.56-.64-.22-1.15-.33-1.1-.69.02-.19.29-.38.79-.58 3.1-1.35 5.13-1.44 6.81-1.66.32-.04.98-.12 1.41-.21.67-.14 1.27-.33 1.21.16z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-2.33 1.5-.36.24-.69.06-.94-.07-.58-.3-1.09-.59-1.58-.88-.61-.36-1.08-.77-1.03-1.44.03-.66.93-1.32 2.56-1.94 2.07-.79 3.11-.83 3.96-.94.28-.03.9-.07 1.3.02.42.1.78.31.89.58.11.27.07.63-.04 1.04z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DentaCare. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
